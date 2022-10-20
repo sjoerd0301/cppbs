@@ -3,7 +3,7 @@ CFLAGS  = -g -Wall
 
 default: main
 
-main: firstname.o lastname.o main.o firstname_array.h lastname_array.h
+main: firstname.o lastname.o main.o
 	$(CC) $(CFLAGS) -o main main.o firstname.o lastname.o
 
 main.o: main.cpp firstname.h lastname.h 
@@ -17,8 +17,6 @@ lastname.o: lastname.cpp lastname.h lastname_array.h
 
 clean: 
 	rm main *.o *_array.h
-
-gen: lastname_array.h firstname_array.h
 
 firstname_array.h: firstname.txt
 	echo "#include <vector>" > firstname_array.h
