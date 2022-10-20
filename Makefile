@@ -9,14 +9,14 @@ main: firstname.o lastname.o main.o firstname_array.h lastname_array.h
 main.o: main.cpp firstname.h lastname.h 
 	$(CC) $(CFLAGS) -c main.cpp
 
-firstname.o: firstname.cpp firstname.h 
+firstname.o: firstname.cpp firstname.h firstname_array.h
 	$(CC) $(CFLAGS) -c firstname.cpp
 
-lastname.o: lastname.cpp lastname.h 
+lastname.o: lastname.cpp lastname.h lastname_array.h
 	$(CC) $(CFLAGS) -c lastname.cpp
 
 clean: 
-	rm main *.o
+	rm main *.o *_array.h
 
 gen: lastname_array.h firstname_array.h
 
